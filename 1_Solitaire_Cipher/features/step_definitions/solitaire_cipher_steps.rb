@@ -18,7 +18,7 @@ end
 
 When /^I decrypt the message$/ do
   @decrypter = SolitaireCipher::Decrypter.new(output)
-  @decrypter.decrypt(@message)
+  @decrypter.decrypt(@secret)
 end
 
 Then /^I should see "([^"]*)"$/ do |text|
