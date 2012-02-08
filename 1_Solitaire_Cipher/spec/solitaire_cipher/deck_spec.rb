@@ -36,7 +36,7 @@ module SolitaireCipher
       d = deck
       d.shift_down("A",1)
       d.shift_down("B",2)
-      d.triple_cut.should == ["B"] + Array(2..52) + ["A", "1"]
+      d.triple_cut.should == ["B"] + Array(2..52) + ["A", 1]
     end
   end
 end
