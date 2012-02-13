@@ -28,5 +28,19 @@ module SolitaireCipher
       message.tr(' ','')
              .each_byte.map{ |byte| byte - 64 }
     end
+
+    def to_alpha(numbers)
+      numbers.map { |number| (number + 64).chr }
+             .each_slice(5)
+             .map {|arr| arr.join}
+             .join(' ')
+    end
+
+    def subtract(msg_num, keystream_num)
+      msg_num.zip(keystream_num).map do |msg, keystream|
+        msg = msg + 26 if keystream >= msg
+        msg - keystream
+      end
+    end
   end
 end
