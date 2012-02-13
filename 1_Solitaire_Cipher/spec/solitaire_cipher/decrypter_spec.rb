@@ -33,7 +33,6 @@ module SolitaireCipher
       numbers = [3, 15, 4, 5, 9, 14, 18, 21, 2, 25, 12, 9, 22, 5, 12, 15, 14,
                  7, 5, 18]
       decrypter.to_alpha(numbers).should == "CODEI NRUBY LIVEL ONGER"
-
     end
   end
 end
