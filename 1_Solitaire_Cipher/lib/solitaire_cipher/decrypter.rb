@@ -12,7 +12,7 @@ module SolitaireCipher
     end
 
     def generate_keystream(secret)
-      @deck.generate_keystream(secret.split(' ').join('').length)
+      @deck.generate_keystream(secret.tr(' ','').length)
     end
 
     def to_numbers(message)
