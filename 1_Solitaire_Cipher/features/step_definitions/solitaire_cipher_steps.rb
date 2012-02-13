@@ -24,3 +24,12 @@ end
 Then /^I should see "([^"]*)"$/ do |text|
   output.messages.should include(text)
 end
+
+Given /^a decrypted message "([^"]*)"$/ do |message|
+  @message = message
+end
+
+When /^I encrypt the message$/ do
+  @encrypter = SolitaireCipher::Encrypter.new(output)
+  @encrypter.encrypt(@message)
+end
