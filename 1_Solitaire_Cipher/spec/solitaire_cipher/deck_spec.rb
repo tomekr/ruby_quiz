@@ -50,7 +50,7 @@ module SolitaireCipher
     end
 
     it "finds the first ten output letters of an unkeyed deck" do
-      deck.generate_keystream(10).should == "DWJXHYRFDG"
+      deck.generate_keystream(10).should == "DWJXH YRFDG"
     end
   end
 end

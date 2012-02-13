@@ -2,6 +2,7 @@ module SolitaireCipher
   class Decrypter
     def initialize(output)
       @output = output
+      @deck = Deck.new
     end
 
     def decrypt(secret)
@@ -11,7 +12,7 @@ module SolitaireCipher
     end
 
     def generate_keystream(secret)
-      "DWJXH YRFDG TMSHP UURXJ"
+      @deck.generate_keystream(secret.split(' ').join('').length)
     end
 
     def to_numbers(message)

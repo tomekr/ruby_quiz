@@ -8,7 +8,6 @@ module SolitaireCipher
       @deck
     end
 
-
     def move_A
       move_down( @deck.index('A') )
       @deck
@@ -77,7 +76,9 @@ module SolitaireCipher
           length -= 1
         end
       end
-      keystream.join
+      keystream.each_slice(5)
+               .map {|slice| slice.join }
+               .join(' ')
     end
   end
 end
