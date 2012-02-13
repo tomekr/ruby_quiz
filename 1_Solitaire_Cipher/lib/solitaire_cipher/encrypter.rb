@@ -23,5 +23,10 @@ module SolitaireCipher
     def generate_keystream(message)
       @deck.generate_keystream(message.tr(' ','').length)
     end
+
+    def to_numbers(message)
+      message.tr(' ','')
+             .each_byte.map{ |byte| byte - 64 }
+    end
   end
 end

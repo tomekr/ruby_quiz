@@ -22,5 +22,11 @@ module SolitaireCipher
       keystream.should == "DWJXH YRFDG TMSHP UURXJ"
     end
 
+    it "converts a message into numbers" do
+      numbers = encrypter.to_numbers(conversion) 
+      numbers.should == [3, 15, 4, 5, 9, 14, 18, 21, 2, 25, 12, 9, 22, 5, 12,
+        15, 14, 7, 5, 18]
+    end
+
   end
 end
