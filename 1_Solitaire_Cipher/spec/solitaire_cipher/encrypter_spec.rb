@@ -34,12 +34,12 @@ module SolitaireCipher
       encrypter.to_alpha(numbers).should == "CODEI NRUBY LIVEL ONGER"
     end
 
-    it "subtracts keystream numbers from message numbers" do
+    it "adds keystream numbers to message numbers" do
       msg_numbers = encrypter.to_numbers(conversion)
       keystream_numbers = encrypter.to_numbers(keystream) 
-      message_numbers = encrypter.subtract(msg_numbers, keystream_numbers)
-      message_numbers.should == [25, 18, 20, 7, 1, 15, 26, 15, 24, 18, 18, 22,
-        3, 23, 22, 20, 19, 15, 7, 8]
+      message_numbers = encrypter.add(msg_numbers, keystream_numbers)
+      message_numbers.should == [7, 12, 14, 3, 17, 13, 10, 1, 6, 6, 6, 22, 15,
+        13, 2, 10, 9, 25, 3, 2]
     end
   end
 end

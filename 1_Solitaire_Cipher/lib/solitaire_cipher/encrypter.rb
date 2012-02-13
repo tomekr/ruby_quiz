@@ -6,7 +6,10 @@ module SolitaireCipher
     end
 
     def encrypt(message)
-
+      conversion = convert_to_padded_alpha(message)
+      keystream = generate_keystream(conversion)
+      msg_numbers = add(to_numbers(conversion), to_numbers(keystream))
+      @output.puts to_alpha(msg_numbers)
     end
 
     def convert_to_padded_alpha(message)
@@ -36,10 +39,11 @@ module SolitaireCipher
              .join(' ')
     end
 
-    def subtract(msg_num, keystream_num)
+    def add(msg_num, keystream_num)
       msg_num.zip(keystream_num).map do |msg, keystream|
-        msg = msg + 26 if keystream >= msg
-        msg - keystream
+        out = msg + keystream
+        out -= 26 if out > 26
+        out
       end
     end
   end
